@@ -1,30 +1,41 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="Top-container">
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">CoinyCoins</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <img src="assets/images/logo.png"
+     alt="Logo"
+     class="img-fluid p-0 m-l-100 d-inline-block align-text-top custom-logo me-auto">
+    
+    <div id="My-icons" class="d-flex order-lg-last">
+      <a  class="nav-link d-block">
+        <i class="fas fa-search fa-lg mx-2"></i> </a>
+      <a href="#" class="nav-link d-block">
+        <i class="fas fa-heart fa-lg mx-2"></i> </a>
+      <a href="#" class="nav-link d-block">
+        <i class="fas fa-shopping-cart fa-lg mx-2"></i> </a>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+    <div class="collapse navbar-collapse navbar-list"id="navbarNav">
+      <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <i class="fas fa-home fa-lg mx-2"></i> 
+          <a class="nav-link active" aria-current="page" routerLink="/home" >Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact.php">Contact Us</a>
+          <i class="fas fa-box fa-lg mx-2"></i>
+          <a  class="nav-link" routerLink="/productspage">Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="login.php">Login</a>
+          <i class="fas fa-arrows-alt-h fa-lg mx-2"></i>
+          <a class="nav-link"> Compare</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+

@@ -1,0 +1,13 @@
+<div>{{header}}</div>
+<div class="product_row">
+  @for (sneaker of product; track sneaker._id) {
+    <div class="img-fluid img-thumbnail sneaker-images">
+      <img 
+        [src]="sneaker.imageLinks.length > 0 ? sneaker.imageLinks[1] : sneaker.thumbnail" 
+        [alt]="sneaker.shoeName" 
+        class=""
+      >
+      <p class="img-thumbnail">{{ sneaker.shoeName }}</p>
+    </div>
+  }
+</div>

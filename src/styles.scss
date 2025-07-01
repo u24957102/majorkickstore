@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+// style.scss
+@import url('https://fonts.googleapis.com/css?family=Alumni+Sans+Pinstripe');
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+    background: linear-gradient(to right, #f2f2f2, #e0e0e0);
+  margin-bottom: 200px;
+}
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: transparent; // or inherit
+}
+
+/* Row Header  */
+.Row-Headers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.line {
+    flex-grow: 1;
+    border: none;
+    border-bottom: 2px solid #3d3b3b;
+    margin: 0 20px;
+}
+.title {
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #225A87;
+    font-weight: bolder;
+    font-family: 'Alumni Sans Pinstripe', sans-serif;
+    font-size: 3vw;
+}
+
+

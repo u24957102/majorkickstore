@@ -1,0 +1,25 @@
+<div class="Row-Headers">
+    <hr class="line">
+    <h2 class="title">Products</h2>
+    <hr class="line">
+</div>
+
+<div class="main-home">
+    <div class="filters">
+        <p>Hello I'm here </p>
+    </div>
+    <div class="product_places">
+        @for (sneaker of Products; track sneaker._id) {
+        <div class="Product_div">
+            <div class="img-fluid img-thumbnail img-div">
+                <img [src]="sneaker.imageLinks.length > 0 ? sneaker.imageLinks[1] : sneaker.thumbnail"
+                    [alt]="sneaker.shoeName" class="">
+            </div>
+            <p class="img-sneaker-title">{{ sneaker.shoeName }}</p>
+            <div class="prices">
+                 <p class="cross-price"></p>
+            </div>
+        </div>
+        }
+    </div>
+</div>

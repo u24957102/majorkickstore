@@ -1,1 +1,88 @@
-<p>home works!</p>
+<!-- home html -->
+<div id="Main-Display" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="video-container">
+                <video autoplay muted loop preload="auto" class="carousel-video-background">
+                    <source src="../assets/video/MainVideo.MOV" type="video/mp4">
+                    <source src="path/to/your/video1.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="carousel-caption">
+                    <h3>Laced up Locked in</h3>
+                    <p> Nationwide Delivery || 3-5 working days </p>
+                    <button class="btn btn-default btn-Shopnow">Shop Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="image_row">
+    <div class="image-item">
+        <img class="" src="../assets/images/picture1.jpg" alt="Description for picture 1">
+    </div>
+    <div class="image-item">
+        <img class="" src="../assets/images/picture2.jpg" alt="Description for picture 2">
+    </div>
+    <div class="image-item">
+        <img class="" src="../assets\images\picture3.jpg" alt="Description for picture 3">
+    </div>
+
+</div>
+
+
+<div class="Row-Headers">
+    <hr class="line">
+    <h2 class="title">Our Brands</h2>
+    <hr class="line">
+</div>
+<div class="row">
+  <button class="btn-arrow">
+    <i class="fas fa-arrow-left arrows"></i>
+  </button>
+  
+  <div class="product_row">
+    @for(brand of Brands; track brand.id; let i = $index) {
+      <div class="brand-logo" [ngClass]="i % 2 === 0 ? 'brand-logo--dark' : 'brand-logo--light'">
+        <img [src]="brand.imageLinks + (i % 2 === 0 ? 'light' : 'dark') + '/logo?c=1idOXYR5t9hQj2LIrSM'"
+             [alt]="brand.name + ' Logo'">
+      </div>
+    }
+  </div>
+  
+  <button class="btn-arrow">
+    <i class="fas fa-arrow-right arrows"></i>
+  </button>
+</div>
+
+
+
+<div class="Row-Headers">
+    <hr class="line">
+    <h2 class="title"> Trending
+    </h2>
+    <hr class="line">
+</div>
+
+<div class="row">
+  <button class="btn-arrow">
+    <i class="fas fa-arrow-left arrows"></i>
+  </button>
+  
+<div class="product_row">
+    @for (sneaker of Products; track sneaker._id) {
+    <div class="img-fluid img-thumbnail sneaker-images">
+        <img [src]="sneaker.imageLinks.length > 0 ? sneaker.imageLinks[1] : sneaker.thumbnail" [alt]="sneaker.shoeName"
+            class="">
+        <p class="img-sneaker-title">{{ sneaker.shoeName }}</p>
+    </div>
+    }
+</div>
+  
+  <button class="btn-arrow">
+    <i class="fas fa-arrow-right arrows"></i>
+  </button>
+</div>
+<footer></footer>
+

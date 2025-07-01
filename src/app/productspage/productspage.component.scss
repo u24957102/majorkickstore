@@ -1,0 +1,88 @@
+//main home div
+.main-home {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    width: 100%;
+    margin-top: 20px;
+    /* Optional: makes it full height */
+}
+
+.filters{
+    width: 100%;
+}
+
+.Row-Headers {
+    margin-top: 5rem;
+}
+
+.product_places {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Changed from 400px to 1fr for responsive */
+    justify-content: center;
+    gap: 20px 5px; 
+    margin: 0 auto; /* Optional: center the grid */
+    margin-right: 20px;
+}
+
+.Product_div {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    width: 100%; 
+    max-width: 390px;
+    height: 500px;
+    margin: 0; 
+    transition: filter 0.3s ease;
+    // border: solid black 2px;
+}
+
+.img-div{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 100%; 
+    height: 65%;
+    margin: 0; 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: filter 0.3s ease;
+}
+
+.img-div img {
+    width: 80%;
+}
+
+.img-sneaker-title {
+    width: 100%;
+    align-self: flex-start;
+    margin: 5px 0px ;
+    
+    // Text wrapping properties
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal; // IMPORTANT: Allows text to wrap
+    hyphens: auto;
+    
+    // Text styling
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4; // Better spacing between lines
+    color: #333;
+    
+    // Remove line clamping that causes ellipsis
+    // display: -webkit-box;        // REMOVE THIS
+    // -webkit-line-clamp: 3;       // REMOVE THIS  
+    // -webkit-box-orient: vertical; // REMOVE THIS
+    // overflow: hidden;            // REMOVE THIS
+}
+
+/* Optional: Hover effect for better UX */
+.Product_div:hover .img-sneaker-title {
+    color: #225A87;
+    text-decoration: underline;
+    /* Match your brand color */
+}
+
+.Product_div img:hover {
+    transform: translateY(-5px);
+}
