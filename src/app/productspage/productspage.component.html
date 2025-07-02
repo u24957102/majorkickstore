@@ -11,13 +11,23 @@
     <div class="product_places">
         @for (sneaker of Products; track sneaker._id) {
         <div class="Product_div">
+            <div class="icons">
+                <i class="fas fa-cart-plus gradient-icon"></i>
+                <i class="fa-regular fa-heart gradient-icon"></i>
+            </div>
+            
             <div class="img-fluid img-thumbnail img-div">
+
                 <img [src]="sneaker.imageLinks.length > 0 ? sneaker.imageLinks[1] : sneaker.thumbnail"
                     [alt]="sneaker.shoeName" class="">
             </div>
-            <p class="img-sneaker-title">{{ sneaker.shoeName }}</p>
-            <div class="prices">
-                 <p class="cross-price"></p>
+            <div class="description-div">
+                <p class="img-sneaker-title">{{ sneaker.shoeName }}</p>
+                <p class="brand">{{sneaker.brand}}</p>
+                <div class="prices">
+                    <p class="price"> R {{sneaker.retailPrice}}</p>
+                    <p class="cross-price">R 1500.00</p>
+                </div>
             </div>
         </div>
         }

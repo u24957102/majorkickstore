@@ -7,7 +7,7 @@
     /* Optional: makes it full height */
 }
 
-.filters{
+.filters {
     width: 100%;
 }
 
@@ -17,33 +17,37 @@
 
 .product_places {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Changed from 400px to 1fr for responsive */
+    grid-template-columns: repeat(3, 1fr);
+    /* Changed from 400px to 1fr for responsive */
     justify-content: center;
-    gap: 20px 5px; 
-    margin: 0 auto; /* Optional: center the grid */
+    gap: 10px 5px;
+    margin: 0 auto;
+    /* Optional: center the grid */
     margin-right: 20px;
 }
 
 .Product_div {
+    position: relative; 
     display: flex;
     flex-direction: column;
     background: transparent;
-    width: 100%; 
+    width: 100%;
     max-width: 390px;
-    height: 500px;
-    margin: 0; 
+    height: 450px;
+    margin: 0;
     transition: filter 0.3s ease;
     // border: solid black 2px;
 }
 
-.img-div{
+.img-div {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     flex-direction: column;
-    width: 100%; 
-    height: 65%;
-    margin: 0; 
+    width: 100%;
+    height: 72%;
+    min-height: 72%;
+    margin: 0;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     transition: filter 0.3s ease;
 }
@@ -52,28 +56,46 @@
     width: 80%;
 }
 
+.description-div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+}
 .img-sneaker-title {
     width: 100%;
     align-self: flex-start;
-    margin: 5px 0px ;
-    
+
     // Text wrapping properties
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal; // IMPORTANT: Allows text to wrap
     hyphens: auto;
-    
+
     // Text styling
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: bold;
     line-height: 1.4; // Better spacing between lines
-    color: #333;
-    
+    color: #363535;
+    font-family: "Smooch Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
     // Remove line clamping that causes ellipsis
     // display: -webkit-box;        // REMOVE THIS
     // -webkit-line-clamp: 3;       // REMOVE THIS  
     // -webkit-box-orient: vertical; // REMOVE THIS
     // overflow: hidden;            // REMOVE THIS
+}
+.brand {
+  font-weight: bolder;
+  font-size: 12px;
+  text-transform: uppercase;       /* All capital letters */
+  color: #225a87;                  /* Similar deep blue */
+  background: linear-gradient(to right, #225a87, #5e9bd8); /* Blue fade */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;       /* Optional fade/hover smoothness */
 }
 
 /* Optional: Hover effect for better UX */
@@ -85,4 +107,105 @@
 
 .Product_div img:hover {
     transform: translateY(-5px);
+}
+p{
+    margin: 0px;
+    padding: 0px;
+}
+.prices{
+    margin: 0px;
+    display: flex;
+    align-items: flex-start;
+} 
+.price{
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.4; // Better spacing between lines
+    color: #363535;
+    font-family: "Smooch Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+.cross-price{
+    font-size: 10px;
+    align-self: center;
+    justify-self: center;
+    text-decoration: line-through;
+    color: #225A87;
+    font-weight: bold;
+    margin: 3px;
+}
+
+.icons{
+    position: absolute;
+    display: flex;
+    justify-content: space-between; /* This spreads the icons apart */
+    width: 100%;
+    padding: 10px; /* Add some padding from the edges */
+    z-index: 10; /* Ensure icons stay on top */
+}
+
+/* Alternative approach - if you want more control */
+.icons-alternative {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    z-index: 10;
+}
+
+.icons-alternative .fa-cart-plus {
+    margin-right: auto; /* Pushes cart icon to the left */
+}
+
+.icons-alternative .fa-heart {
+    margin-left: auto; /* Pushes heart icon to the right */
+}
+
+.gradient-icon {
+    font-size: 1.5rem;
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    text-align: center;
+    background: linear-gradient(to right, #01182b, #0a2e4a, #ffffff, #0a2e4a, #01182b);
+    background-size: 300% auto;
+    -webkit-background-clip: border-box;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shine-border 10s linear infinite;
+    transition: transform 0.6s ease;
+    display: inline-block;
+}
+
+/* Optional hover effect */
+.gradient-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Shine animation - occurs every 10 seconds with pauses */
+@keyframes shine-border {
+    0% {
+        background-position: -150% 0;
+    }
+    10% {
+        background-position: 150% 0; /* Animation completes in first 10% of timeline */
+    }
+    11%, 100% {
+        background-position: 150% 0; /* Stay still for remaining 90% */
+    }
+}
+
+/* Alternative approach - if you want the shine to be faster but still repeat every 10s */
+@keyframes shine-border-fast {
+    0% {
+        background-position: -150% 0;
+    }
+    5% {
+        background-position: 150% 0; /* Animation completes in first 5% of timeline */
+    }
+    6%, 100% {
+        background-position: 150% 0; /* Stay still for remaining 95% */
+    }
 }
