@@ -6,26 +6,41 @@
 
 <div class="main-home">
     <div class="filters">
-        <p>Hello I'm here </p>
+        <p>Hello I'm here</p>
     </div>
     <div class="product_places">
         @for (sneaker of Products; track sneaker._id) {
-        <div class="Product_div">
+        <div class="Product_div"
+             [class.hovered]="isHoveringPD[sneaker._id]"
+             (mouseenter)="onProduct_divHover(sneaker._id)"
+             (mouseleave)="onProduct_divLeave(sneaker._id)">
+            
             <div class="icons">
                 <i class="fas fa-cart-plus gradient-icon"></i>
                 <i class="fa-regular fa-heart gradient-icon"></i>
             </div>
-            
-            <div class="img-fluid img-thumbnail img-div">
 
-                <img [src]="sneaker.imageLinks.length > 0 ? sneaker.imageLinks[1] : sneaker.thumbnail"
-                    [alt]="sneaker.shoeName" class="">
+            <div class="img-fluid img-thumbnail main-img-div" 
+                 (mouseenter)="onMainImageHover(sneaker._id)"
+                 (mouseleave)="onMainImageLeave(sneaker._id)">
+                <img [src]="getDisplayImage(sneaker)" [alt]="sneaker.shoeName" class="">
             </div>
+
+            <!-- Images container with smooth transitions -->
+            <div class="images-div" 
+                 [class.hidden]="!onProductHover(sneaker._id)">
+                @for (imageLink of ImageLinks; track imageLink) {
+                <img [src]="imageLink" [alt]="'Sneaker Image'"
+                     [class.clicked-image]="isImageClicked(sneaker._id, imageLink)"
+                     (click)="onImageClick(sneaker._id, imageLink)" />
+                }
+            </div>
+
             <div class="description-div">
                 <p class="img-sneaker-title">{{ sneaker.shoeName }}</p>
                 <p class="brand">{{sneaker.brand}}</p>
                 <div class="prices">
-                    <p class="price"> R {{sneaker.retailPrice}}</p>
+                    <p class="price">R {{sneaker.retailPrice}}</p>
                     <p class="cross-price">R 1500.00</p>
                 </div>
             </div>

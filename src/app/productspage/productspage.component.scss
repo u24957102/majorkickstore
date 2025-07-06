@@ -4,7 +4,6 @@
     grid-template-columns: 20% 80%;
     width: 100%;
     margin-top: 20px;
-    /* Optional: makes it full height */
 }
 
 .filters {
@@ -18,12 +17,12 @@
 .product_places {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* Changed from 400px to 1fr for responsive */
     justify-content: center;
     gap: 10px 5px;
     margin: 0 auto;
-    /* Optional: center the grid */
     margin-right: 20px;
+    // Add transition for smooth grid adjustments
+    transition: all 0.3s ease;
 }
 
 .Product_div {
@@ -33,13 +32,35 @@
     background: transparent;
     width: 100%;
     max-width: 390px;
-    height: 450px;
+    height: 450px; // Base height
     margin: 0;
-    transition: filter 0.3s ease;
-    // border: solid black 2px;
+    transition: all 0.3s ease; // Smooth transition for all properties
+    overflow: hidden; // Prevent content overflow during transitions
+    
+    // Add transform-origin for better scaling
+    transform-origin: center top;
 }
 
-.img-div {
+// Hovered state - expands the card
+.Product_div.hovered {
+    height: 530px; // Expanded height to accommodate images
+    border: 3px solid #225A87; 
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(34, 90, 135, 0.3);
+    padding: 10px;
+    z-index: 10; // Bring to front
+    transform: scale(1.02); // Slight scale for emphasis
+}
+
+// Legacy hover support (keeping your original hover effect as fallback)
+.Product_div:hover:not(.hovered) {
+    border: 3px solid #225A87; 
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(34, 90, 135, 0.3);
+    padding: 10px;
+}
+
+.main-img-div {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -49,84 +70,88 @@
     min-height: 72%;
     margin: 0;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    transition: filter 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.img-div img {
+// Adjust main image height when card is hovered
+.Product_div.hovered .main-img-div {
+    height: 65%; // Slightly smaller to make room for images
+    min-height: 65%;
+}
+
+.main-img-div img {
     width: 80%;
+    transition: transform 0.3s ease;
 }
 
-.description-div{
+.description-div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0px;
+    transition: all 0.3s ease;
 }
+
 .img-sneaker-title {
     width: 100%;
     align-self: flex-start;
-
-    // Text wrapping properties
     word-wrap: break-word;
     overflow-wrap: break-word;
-    white-space: normal; // IMPORTANT: Allows text to wrap
+    white-space: normal;
     hyphens: auto;
-
-    // Text styling
     font-size: 20px;
     font-weight: bold;
-    line-height: 1.4; // Better spacing between lines
+    line-height: 1.4;
     color: #363535;
     font-family: "Smooch Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-
-    // Remove line clamping that causes ellipsis
-    // display: -webkit-box;        // REMOVE THIS
-    // -webkit-line-clamp: 3;       // REMOVE THIS  
-    // -webkit-box-orient: vertical; // REMOVE THIS
-    // overflow: hidden;            // REMOVE THIS
+    transition: color 0.3s ease;
 }
+
 .brand {
-  font-weight: bolder;
-  font-size: 12px;
-  text-transform: uppercase;       /* All capital letters */
-  color: #225a87;                  /* Similar deep blue */
-  background: linear-gradient(to right, #225a87, #5e9bd8); /* Blue fade */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: all 0.3s ease;       /* Optional fade/hover smoothness */
+    font-weight: bolder;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #225a87;
+    background: linear-gradient(to right, #225a87, #5e9bd8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease;
 }
 
-/* Optional: Hover effect for better UX */
-.Product_div:hover .img-sneaker-title {
+.Product_div.hovered .img-sneaker-title {
     color: #225A87;
     text-decoration: underline;
-    /* Match your brand color */
 }
 
 .Product_div img:hover {
     transform: translateY(-5px);
 }
-p{
+
+p {
     margin: 0px;
     padding: 0px;
 }
-.prices{
+
+.prices {
     margin: 0px;
     display: flex;
     align-items: flex-start;
 } 
-.price{
+
+.price {
     font-size: 20px;
     font-weight: bold;
-    line-height: 1.4; // Better spacing between lines
+    line-height: 1.4;
     color: #363535;
     font-family: "Smooch Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
 }
-.cross-price{
+
+.cross-price {
     font-size: 10px;
     align-self: center;
     justify-self: center;
@@ -136,16 +161,16 @@ p{
     margin: 3px;
 }
 
-.icons{
+.icons {
     position: absolute;
     display: flex;
-    justify-content: space-between; /* This spreads the icons apart */
+    justify-content: space-between;
     width: 100%;
-    padding: 10px; /* Add some padding from the edges */
-    z-index: 10; /* Ensure icons stay on top */
+    padding: 10px;
+    z-index: 10;
+    transition: all 0.3s ease;
 }
 
-/* Alternative approach - if you want more control */
 .icons-alternative {
     position: absolute;
     display: flex;
@@ -155,11 +180,11 @@ p{
 }
 
 .icons-alternative .fa-cart-plus {
-    margin-right: auto; /* Pushes cart icon to the left */
+    margin-right: auto;
 }
 
 .icons-alternative .fa-heart {
-    margin-left: auto; /* Pushes heart icon to the right */
+    margin-left: auto;
 }
 
 .gradient-icon {
@@ -179,33 +204,118 @@ p{
     display: inline-block;
 }
 
-/* Optional hover effect */
 .gradient-icon:hover {
     transform: scale(1.1);
 }
 
-/* Shine animation - occurs every 10 seconds with pauses */
 @keyframes shine-border {
     0% {
         background-position: -150% 0;
     }
     10% {
-        background-position: 150% 0; /* Animation completes in first 10% of timeline */
+        background-position: 150% 0;
     }
     11%, 100% {
-        background-position: 150% 0; /* Stay still for remaining 90% */
+        background-position: 150% 0;
     }
 }
 
-/* Alternative approach - if you want the shine to be faster but still repeat every 10s */
 @keyframes shine-border-fast {
     0% {
         background-position: -150% 0;
     }
     5% {
-        background-position: 150% 0; /* Animation completes in first 5% of timeline */
+        background-position: 150% 0;
     }
     6%, 100% {
-        background-position: 150% 0; /* Stay still for remaining 95% */
+        background-position: 150% 0;
+    }
+}
+
+.images-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 10px 15px;
+    gap: 8px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    transform: translateY(-10px);
+}
+
+// Show images when card is hovered
+.Product_div.hovered .images-div {
+    opacity: 1;
+    max-height: 80px;
+    transform: translateY(0);
+}
+
+// Legacy support for your hidden class
+.images-div:not(.hidden) {
+    opacity: 1;
+    max-height: 80px;
+    transform: translateY(0);
+}
+
+.images-div.hidden {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-10px);
+}
+
+.images-div img {
+    width: 50px;
+    background-color: transparent;
+    box-shadow: 0 8px 25px rgba(25, 82, 187, 0.15);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.images-div img:hover {
+    width: 80px;
+    transform: scale(1.1);
+}
+
+.images-div img.clicked-image {
+    border: 3px solid #225A87;
+    box-shadow: 0 8px 25px rgba(34, 90, 135, 0.3);
+    transform: scale(1.15);
+    width: 80px;
+}
+
+.images-div img.clicked-image:hover {
+    width: 80px;
+    transform: scale(1.15);
+}
+
+// Utility class to hide elements
+.hidden {
+    display: none;
+}
+
+// Media queries for responsive behavior
+@media (max-width: 1200px) {
+    .product_places {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .main-home {
+        grid-template-columns: 1fr;
+    }
+    
+    .product_places {
+        grid-template-columns: 1fr;
+    }
+    
+    .Product_div {
+        max-width: 100%;
     }
 }
